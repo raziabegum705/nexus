@@ -1,0 +1,150 @@
+:root {
+  --bg: #f5f7fa;
+  --bg2: #eef1f6;
+  --bg3: #e4e9f2;
+  --card: rgba(255, 255, 255, 0.95);
+  --border: rgba(0, 0, 0, 0.08);
+  --border2: rgba(0, 0, 0, 0.05);
+  --green: #059669;
+  --green2: #047857;
+  --blue: #2563eb;
+  --red: #dc2626;
+  --yellow: #d97706;
+  --text: #0f172a;
+  --text2: #475569;
+  --text3: #94a3b8;
+  --mono: 'JetBrains Mono', monospace;
+  --font: 'Space Grotesk', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+
+/* Leaflet light override */
+.leaflet-container {
+  background: #e8edf5 !important;
+  font-family: var(--font) !important;
+}
+.leaflet-tile-pane { filter: saturate(0.7) brightness(1.05); }
+.leaflet-control-attribution { display: none !important; }
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 200, 150, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(0, 200, 150, 0.7); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes cascade {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.slide-in { animation: slideIn 0.4s ease forwards; }
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+.pulse { animation: pulse 2s infinite; }
+.glow { animation: glow 2s infinite; }
+
+/* Common Components */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.badge-green { background: rgba(5,150,105,0.1); color: var(--green); border: 1px solid rgba(5,150,105,0.25); }
+.badge-red { background: rgba(220,38,38,0.1); color: var(--red); border: 1px solid rgba(220,38,38,0.25); }
+.badge-yellow { background: rgba(217,119,6,0.1); color: var(--yellow); border: 1px solid rgba(217,119,6,0.25); }
+.badge-blue { background: rgba(37,99,235,0.1); color: var(--blue); border: 1px solid rgba(37,99,235,0.25); }
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--green2); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+.btn-outline:hover { background: rgba(5,150,105,0.08); }
+.btn-danger {
+  background: rgba(220,38,38,0.08);
+  color: var(--red);
+  border: 1px solid rgba(220,38,38,0.25);
+}
+.btn-danger:hover { background: rgba(220,38,38,0.15); }
+
+.risk-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg3);
+  overflow: hidden;
+}
+.risk-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 1.5s infinite;
+  display: inline-block;
+}
