@@ -2,6 +2,8 @@
 
 > Predict. Route. Deliver. Before It's Too Late.
 
+---
+
 Built for **Google Solution Challenge 2026**
 Aligned with **SDG 9 · SDG 11 · SDG 13**
 
