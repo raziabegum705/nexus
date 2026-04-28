@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: linear-gradient(to bottom right, #0F1419, #1a2f42, #0d3b52);
+  --bg-dark: #0F1419;
+  --bg-gradient-1: #1a2f42;
+  --bg-gradient-2: #0d3b52;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text1: #f1f5f9;
+  --text2: #cbd5e1;
+  --text3: #64748b;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --card: rgba(255, 255, 255, 0.05);
+  --accent-teal: #0F9D8A;
+  --accent-cyan: #00D4FF;
+  --green: #0F9D8A;
+  --base-100: #1a2f42;
+  --base-200: #0d3b52;
+  --base-300: rgba(255, 255, 255, 0.1);
+  --base-content: #f1f5f9;
+}
+
+@layer base {
+  html, body, #root {
+    background: linear-gradient(to bottom right, #0F1419, #1a2f42, #0d3b52) !important;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  body {
+    @apply font-serif text-base text-slate-100;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl backdrop-blur-xl shadow-lg transition-all duration-300;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .card:hover {
+    @apply shadow-2xl;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .btn {
+    @apply font-serif font-semibold text-base transition-all duration-300 rounded-xl;
+    @apply hover:shadow-lg hover:shadow-teal-500/50;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-white;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-teal-500/50 text-teal-300 hover:bg-teal-500/10;
+  }
+  
+  .badge {
+    @apply font-mono text-sm font-bold uppercase;
+  }
+
+  .risk-bar {
+    @apply h-2 rounded bg-white/10 overflow-hidden;
+  }
+
+  .risk-fill {
+    @apply h-full rounded transition-all duration-500;
+  }
+
+  .live-dot {
+    @apply w-2 h-2 rounded-full bg-success inline-block;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-effect-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(15, 157, 138, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(15, 157, 138, 0.7); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cascade {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+@keyframes text-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(15, 157, 138, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(15, 157, 138, 0.8); }
+}
+
+.slide-in { animation: slideIn 0.6s ease-out forwards; }
+.fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.pulse { animation: pulse 2s infinite; }
+.glow { animation: glow 2s infinite; }
+.float-slow { animation: float-slow 7s ease-in-out infinite; }
+.animate-morph { animation: morph 10s ease-in-out infinite; }
+.text-glow { animation: text-glow 3s ease-in-out infinite; }
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: 'Times New Roman', serif !important;
+}
+
+.leaflet-control-attribution { display: none !important; }
