@@ -64,7 +64,7 @@ NEXUS is an AI-powered supply chain intelligence platform that helps governments
 | Database | **Firebase Realtime Database** (Google) |
 | AI | **Gemini 1.5 Flash** (Google) |
 | Styling | Custom CSS |
-| Deployment | Vercel (frontend) + Railway (backend) |
+| Deployment | Vercel (frontend) + Render (backend) |
 | SDGs | 9 (Industry & Infrastructure), 11 (Sustainable Cities), 13 (Climate Action) |
  
 ---
@@ -186,11 +186,12 @@ GEMINI_API_KEY=your_key_here
 4. Add all `VITE_*` env vars from `client/.env`
 5. Deploy → copy your live URL
 
-### Backend → Railway
-1. [railway.app](https://railway.app) → New Project → Deploy from GitHub
-2. Root Directory: `server`
-3. Add env vars: `GEMINI_API_KEY`, `FIREBASE_DB_URL`, `FIREBASE_SERVICE_ACCOUNT` (paste the JSON as one line)
-4. Deploy → copy Railway URL → update `VITE_BACKEND_URL` in Vercel
+### Backend → Render
+1. [render.com](https://render.com) → New → **Web Service**
+2. Connect your GitHub repo
+3. Root Directory: `server` | Runtime: **Node** | Build Command: `npm install` | Start Command: `npm start`
+4. Add environment variables: `GEMINI_API_KEY`, `FIREBASE_DB_URL`, `FIREBASE_SERVICE_ACCOUNT` (paste the JSON as a single-line string)
+5. Deploy → copy your Render service URL → update `VITE_BACKEND_URL` in Vercel
 
 ---
 
@@ -200,7 +201,7 @@ GEMINI_API_KEY=your_key_here
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                          USER / BROWSER                             │
-│              React 18 + Vite  |  Leaflet Maps  |  Custom CSS       │
+│              React 18 + Vite  |  Leaflet Maps  |  Custom CSS        │
 │                                                                     │
 │   /           /dashboard    /shipments   /disruptions   /simulate   │
 │  Landing     Mission Ctrl   AI Reroute    Live Feed    Cascade Sim  │
@@ -208,20 +209,20 @@ GEMINI_API_KEY=your_key_here
                              │  HTTP REST + WebSocket (Socket.IO)
                              ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                       BACKEND  (Railway)                            │
+│                       BACKEND  (Render)                             │
 │                    Node.js + Express Server                         │
 │                                                                     │
-│  ┌──────────────┐  ┌─────────────────┐  ┌────────────────────────┐ │
-│  │  REST API    │  │  Socket.IO Hub  │  │   Seed / Data Layer    │ │
-│  │  /api/route  │  │  Live shipment  │  │   npm run seed →       │ │
-│  │  /api/ships  │  │  updates every  │  │   populates Firebase   │ │
-│  │  /api/disrupt│  │  4 seconds      │  │   with initial data    │ │
-│  └──────┬───────┘  └────────┬────────┘  └────────────────────────┘ │
+│  ┌──────────────┐  ┌─────────────────┐  ┌────────────────────────┐  │
+│  │  REST API    │  │  Socket.IO Hub  │  │   Seed / Data Layer    │  │
+│  │  /api/route  │  │  Live shipment  │  │   npm run seed →       │  │
+│  │  /api/ships  │  │  updates every  │  │   populates Firebase   │  │
+│  │  /api/disrupt│  │  4 seconds      │  │   with initial data    │  │
+│  └──────┬───────┘  └────────┬────────┘  └────────────────────────┘  │
 │         │                   │                                       │
 │         └──────────┬────────┘                                       │
-│                    │                                                 │
+│                    │                                                │
 │         ┌──────────▼──────────┐                                     │
-│         │   Gemini 1.5 Flash  │  ← AI Rerouting Engine             │
+│         │   Gemini 1.5 Flash  │  ← AI Rerouting Engine              │
 │         │   Google AI API     │    3 alternate routes on demand     │
 │         └─────────────────────┘                                     │
 └────────────────────────────┬────────────────────────────────────────┘
@@ -230,8 +231,8 @@ GEMINI_API_KEY=your_key_here
 ┌─────────────────────────────────────────────────────────────────────┐
 │                  FIREBASE REALTIME DATABASE  (Google)               │
 │                                                                     │
-│   shipments/      disruptions/      routes/      kpis/             │
-│   (live status)   (active alerts)   (map data)   (dashboard stats) │
+│   shipments/      disruptions/      routes/      kpis/              │
+│   (live status)   (active alerts)   (map data)   (dashboard stats)  │
 │                                                                     │
 │         Syncs live across all connected clients in real-time        │
 └─────────────────────────────────────────────────────────────────────┘
