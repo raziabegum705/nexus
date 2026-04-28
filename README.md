@@ -157,10 +157,10 @@ Open http://localhost:5173
 
 | Name | Role |
 |------|------|
-| Razia Begum | Full Stack Lead |
-| Ananya | Frontend Developer |
-| Nivedh | Backend & DevOps |
-| [Member 4] | UI/UX & Research |
+| Nivedh | Project Lead, Team Coordination & Strategy |
+| Ananya | Backend Feature Development, Product Planning & Documentation |
+| Razia Begum | Full Stack Development / Core Implementation |
+| Bobbala Gopinadh Yadav | Testing, Research & Quality Assurance |
 
 ---
 
