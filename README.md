@@ -6,7 +6,7 @@
 **Predict. Route. Deliver. Before It's Too Late.**
 
 [![Live Demo](https://img.shields.io/badge/🔴_Live_Demo-Click_Here-00c896?style=for-the-badge)](https://nexus-app.vercel.app)
-[![Demo Video](https://img.shields.io/badge/📹_Demo_Video-YouTube-ff0000?style=for-the-badge)](https://youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Demo Video](https://img.shields.io/badge/📹_Demo_Video-YouTube-ff0000?style=for-the-badge)](https://youtu.be/5qn0VUIPjSo)
 [![Project Deck](https://img.shields.io/badge/📊_Project_Deck-Google_Slides-4285F4?style=for-the-badge)](https://docs.google.com/presentation/d/YOUR_DECK_ID)
 
 > Built for **Google Solution Challenge 2026** | SDG 9 · SDG 11 · SDG 13
