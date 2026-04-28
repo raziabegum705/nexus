@@ -7,7 +7,7 @@
 
 [![Live Demo](https://img.shields.io/badge/🔴_Live_Demo-Click_Here-00c896?style=for-the-badge)](https://nexus-app.vercel.app)
 [![Demo Video](https://img.shields.io/badge/📹_Demo_Video-YouTube-ff0000?style=for-the-badge)](https://youtu.be/5qn0VUIPjSo)
-[![Project Deck](https://img.shields.io/badge/📊_Project_Deck-Google_Slides-4285F4?style=for-the-badge)](https://docs.google.com/presentation/d/YOUR_DECK_ID)
+[![Project Deck](https://img.shields.io/badge/📊_Project_Deck-Google_Slides-4285F4?style=for-the-badge)](https://docs.google.com/presentation/d/1w5S0GjdkRTLwUePFrCz1plw_AQRD0Sd8/edit?slide=id.p1#slide=id.p1)
 
 > Built for **Google Solution Challenge 2026** | SDG 9 · SDG 11 · SDG 13
 
@@ -35,7 +35,7 @@ NEXUS is an AI-powered supply chain intelligence platform that helps governments
 |----------|------|
 | 🔴 Live App | https://nexus-app.vercel.app |
 | 📹 Demo Video | https://youtu.be/5qn0VUIPjSo |
-| 📊 Project Deck | https://docs.google.com/presentation/d/YOUR_DECK_ID |
+| 📊 Project Deck | https://docs.google.com/presentation/d/1w5S0GjdkRTLwUePFrCz1plw_AQRD0Sd8/edit?slide=id.p1#slide=id.p1 |
 | 💻 GitHub | https://github.com/raziabegum705/nexus |
 
 ---
