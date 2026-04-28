@@ -144,7 +144,7 @@ export default function Simulate() {
               marginBottom: '16px',
               fontSize: '13px'
             }}>
-              ⚠️ {error}. Make sure the backend is running on http://localhost:5000
+              ⚠️ {error}. Make sure the backend is running on http://https://nexus-b0mf.onrender.com
             </div>
           )}
           {shipments.length === 0 && !error && (
