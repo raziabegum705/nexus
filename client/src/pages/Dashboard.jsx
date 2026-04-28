@@ -3,6 +3,8 @@ import LiveMap from '../components/LiveMap'
 import { SkeletonKPI, SkeletonCard } from '../components/Skeleton'
 import socket from '../socket'
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+
 const getRiskColor = (score) => {
   if (score >= 80) return '#ff4444'
   if (score >= 50) return '#f59e0b'
@@ -19,9 +21,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/stats').then(r => r.json()).then(d => { if (d.success) setStats(d.data) }),
-      fetch('/api/shipments').then(r => r.json()).then(d => { if (d.success) setShipments(d.data) }),
-      fetch('/api/disruptions').then(r => r.json()).then(d => { if (d.success) setDisruptions(d.data) })
+      fetch(`${BACKEND_URL}/api/stats`).then(r => r.json()).then(d => { if (d.success) setStats(d.data) }),
+      fetch(`${BACKEND_URL}/api/shipments`).then(r => r.json()).then(d => { if (d.success) setShipments(d.data) }),
+      fetch(`${BACKEND_URL}/api/disruptions`).then(r => r.json()).then(d => { if (d.success) setDisruptions(d.data) })
     ]).then(() => setLoading(false))
 
     socket.on('connect', () => setConnected(true))

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { SkeletonDisruption } from '../components/Skeleton'
 import socket from '../socket'
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+
 const SEVERITY_COLOR = { critical: '#ff4444', high: '#ff6b35', medium: '#f59e0b', low: '#00c896' }
 const TYPE_ICON = { weather: '🌧️', traffic: '🚧', operational: '⚙️', default: '⚠️' }
 
@@ -12,7 +14,7 @@ export default function Disruptions() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/disruptions').then(r => r.json()).then(d => { 
+    fetch(`${BACKEND_URL}/api/disruptions`).then(r => r.json()).then(d => { 
       if (d.success) {
         setDisruptions(d.data)
         setLoading(false)

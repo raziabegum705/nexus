@@ -5,7 +5,9 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://nexus-b0mf.onre
 const socket = io(BACKEND_URL, {
   transports: ['websocket', 'polling'],
   reconnection: true,
-  reconnectionDelay: 1000
+  reconnectionDelay: 1000,
+  reconnectionDelayMax: 5000,
+  reconnectionAttempts: 5
 });
 
 export default socket;

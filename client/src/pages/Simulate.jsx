@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SkeletonCard, LoadingOverlay } from '../components/Skeleton'
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+
 const NODE_POSITIONS = {
   SHP001: { x: 280, y: 200 },
   SHP002: { x: 160, y: 120 },
@@ -33,7 +35,7 @@ export default function Simulate() {
   const animRef = useRef(null)
 
   useEffect(() => {
-    fetch('/api/shipments')
+    fetch(`${BACKEND_URL}/api/shipments`)
       .then(r => r.json())
       .then(d => {
         if (d.success) {
@@ -61,7 +63,7 @@ export default function Simulate() {
     if (animRef.current) clearTimeout(animRef.current)
 
     try {
-      const res = await fetch(`/api/cascade/${shipment.id}`, { method: 'POST' })
+      const res = await fetch(`${BACKEND_URL}/api/cascade/${shipment.id}`, { method: 'POST' })
       const data = await res.json()
       if (data.success) {
         setCascadeData(data.data)

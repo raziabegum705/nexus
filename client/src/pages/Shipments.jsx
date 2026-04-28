@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { SkeletonShipment } from '../components/Skeleton'
 import socket from '../socket'
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+
 const getRiskColor = (score) => {
   if (score >= 80) return '#ff4444'
   if (score >= 50) return '#f59e0b'
@@ -26,7 +28,7 @@ export default function Shipments() {
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {
-    fetch('/api/shipments').then(r => r.json()).then(d => { 
+    fetch(`${BACKEND_URL}/api/shipments`).then(r => r.json()).then(d => { 
       if (d.success) {
         setShipments(d.data)
         setPageLoading(false)
@@ -45,7 +47,7 @@ export default function Shipments() {
   const handleReroute = async (shipment) => {
     setSelected(shipment); setRoutes(null); setLoading(true)
     try {
-      const res = await fetch(`/api/reroute/${shipment.id}`, { method: 'POST' })
+      const res = await fetch(`${BACKEND_URL}/api/reroute/${shipment.id}`, { method: 'POST' })
       const data = await res.json()
       if (data.success) setRoutes(data.data)
     } catch (e) { console.error(e) }
