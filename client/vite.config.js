@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.VITE_BACKEND_URL || 'http://https://nexus-b0mf.onrender.com',
+        target: process.env.VITE_BACKEND_URL || 'https://nexus-b0mf.onrender.com',
         changeOrigin: true
       }
     }
