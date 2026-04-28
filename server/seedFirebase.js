@@ -1,4 +1,3 @@
-// Run once to seed Firebase: node seedFirebase.js
 require('dotenv').config();
 const db = require('./firebaseAdmin');
 const { shipments, disruptions, nodes } = require('./data/mockData');

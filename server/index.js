@@ -15,7 +15,6 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-// ─── Firebase (optional — falls back to mockData if not configured) ───────────
 let db = null;
 try {
   db = require('./firebaseAdmin');
@@ -40,7 +39,6 @@ async function getDisruptions() {
   } catch (e) { return disruptions; }
 }
 
-// ─── Routes ───────────────────────────────────────────────────────────────────
 
 app.get('/api/shipments', async (req, res) => {
   const data = await getShipments();
@@ -126,7 +124,6 @@ app.post('/api/cascade/:id', async (req, res) => {
   res.json({ success: true, data: { root: shipment, cascadeChain, totalAffected: cascadeChain.length, totalDelayHours: cascadeChain.reduce((a, b) => a + (b.depth * 2), 0) } });
 });
 
-// ─── Socket.io ────────────────────────────────────────────────────────────────
 
 io.on('connection', async (socket) => {
   console.log('🔌 Client connected:', socket.id);
@@ -151,7 +148,6 @@ setInterval(async () => {
   io.emit('shipment_update', update);
 }, 4000);
 
-// Random disruption alerts every 15 seconds
 setInterval(async () => {
   const types = ['weather', 'traffic', 'operational'];
   const locations = ['NH-44', 'Mumbai Port', 'Delhi Hub', 'Hyderabad Ring Road'];
