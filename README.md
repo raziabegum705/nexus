@@ -315,8 +315,8 @@ nexus/
 
 | Name | Role |
 |------|------|
-| Nivedh | Project Lead, Team Coordination & Strategy |
-| Ananya | Backend Feature Development, Product Planning & Documentation |
+| Nivedh Ireni | Project Lead, Team Coordination & Strategy |
+| Ananya Darna | Backend Feature Development, Product Planning & Documentation |
 | Razia Begum | Full Stack Development / Core Implementation |
 | Bobbala Gopinadh Yadav | Testing, Research & Quality Assurance |
 
