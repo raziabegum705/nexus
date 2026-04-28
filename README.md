@@ -34,7 +34,7 @@ NEXUS is an AI-powered supply chain intelligence platform that helps governments
 | Resource | Link |
 |----------|------|
 | 🔴 Live App | https://nexus-app.vercel.app |
-| 📹 Demo Video | https://youtube.com/watch?v=YOUR_VIDEO_ID |
+| 📹 Demo Video | https://youtu.be/5qn0VUIPjSo |
 | 📊 Project Deck | https://docs.google.com/presentation/d/YOUR_DECK_ID |
 | 💻 GitHub | https://github.com/raziabegum705/nexus |
 
